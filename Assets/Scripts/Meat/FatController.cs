@@ -29,10 +29,17 @@ public class FatController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Meat")
+        {
+            collision.GetComponentInParent<MeatController>().CleanMeat(this.gameObject);
+        }
+    }
+
     public void Deattach()
     {
         this.gameObject.tag = "DeattachedFat";
-        GetComponentInParent<MeatController>().CleanMeat(this.gameObject);
         transform.parent = null;
         isDeattached = true;
     }

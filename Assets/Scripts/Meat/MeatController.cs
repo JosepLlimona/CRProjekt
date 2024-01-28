@@ -6,8 +6,6 @@ public class MeatController : MonoBehaviour
 {
 
     private List<GameObject> fat;
-    private float increment;
-    private int clean = 0;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -24,7 +22,6 @@ public class MeatController : MonoBehaviour
             }
 
         }
-            increment = 100 / fat.Count;
     }
 
     private void OnMouseDrag()
@@ -43,12 +40,10 @@ public class MeatController : MonoBehaviour
 
     public void CleanMeat(GameObject fat)
     {
-        clean += (int)increment;
-        if (clean >= 100)
-        {
-            clean = 100;
-        }
         this.fat.Remove(fat);
-        Debug.Log("Actual clean: " + clean);
+        if(this.fat.Count <= 0)
+        {
+            gameObject.layer = 0;
+        }
     }
 }
