@@ -10,6 +10,7 @@ TagManager:
   - Chopper
   - DeattachedFat
   - Trash
+  - Box
   layers:
   - Default
   - TransparentFX

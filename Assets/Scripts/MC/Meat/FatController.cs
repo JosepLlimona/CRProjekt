@@ -7,10 +7,20 @@ public class FatController : MonoBehaviour
 
     private bool isDeattached = false;
     private Rigidbody2D rb;
+    private Vector3 pos;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        pos = transform.localPosition;
+    }
+
+    private void Update()
+    {
+        if (!isDeattached)
+        {
+            transform.localPosition = pos;
+        }
     }
 
     private void OnMouseDrag()
